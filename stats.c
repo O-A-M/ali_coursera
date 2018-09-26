@@ -1,133 +1,41 @@
+/******************************************************************************
+* Copyright (C) 2017 by Alex Fosdick - University of Colorado
+*
+* Redistribution, modification or use of this software in source or binary
+* forms is permitted as long as the files maintain this copyright. Users are
+* permitted to modify this and use it to learn about the field of embedded
+* software. Alex Fosdick and the University of Colorado are not liable for any
+* misuse of this material.
+*
+*****************************************************************************/
+
+/*
+* @How to find mean, median, maximum and minimum
+*
+* @author osama ali
+* @date 26/9
+*/
+
 #include <stdlib.h>
 #include <stdio.h>
+#include <stats.h>
 
-void print_array(unsigned int* n, unsigned char arr[])
-{
-    for (int i = 0; i < n; ++i)
-	{
-		printf("Enter the element Number %d: ", i + 1);
-		scanf("%c", &arr[i]);
-	}
-
-}
-
-unsigned char find_maximum(unsigned int* n, unsigned char arr)
-{
-	int i;
-
-	for (i = 1; i < n; ++i)
-	{
-		if (arr[0] < arr[i])
-			arr[0] = arr[i];
-	}
-	return arr[0];
-
-}
-
-unsigned char find_minimum(unsigned int* n, unsigned char arr)
-{
-	int i;
-
-	for (i = 1; i < n; ++i)
-	{
-		if (arr[0] > arr[i])
-			arr[0] = arr[i];
-	}
-	return arr[0];
-
-}
-
-unsigned char find_mean(unsigned int* n, unsigned char arr)
-{
-	int sum = 0, i;
-	for (i = 0; i<n; i++)
-		sum += arr[i];
-	return((float)sum / n);
-}
-
-unsigned char find_median(unsigned int* n, unsigned char arr)
-{
-	int temp;
-	int i, j;
-	// the following two loops sort the array x in ascending order
-	for (i = 0; i<n - 1; i++)
-	{
-		for (j = i + 1; j<n; j++)
-		{
-			if (arr[j] < arr[i])
-			{
-				// swap elements
-				temp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = temp;
-			}
-		}
-	}
-
-	if (n % 2 == 0)
-	{
-		// if there is an even number of elements, return mean of the two elements in the middle
-		return((arr[n / 2] + arr[n / 2 - 1]) / 2.0);
-	}
-	else
-	{
-		// else return the element in the middle
-		return arr[n / 2];
-	}
-}
-
-void print_statistics(unsigned int* n, unsigned char arr)
-{
-	printf("please enter the number of elements \n");
-	scanf("%d", &n);
-
-	printf("maximum=%c\n", find_maximum(n, arr[n]));
-	printf("minimum=%c\n", find_minimum(n, arr[n]));
-	printf("mean=%c\n", find_mean(n, arr[n]));
-	printf("median=%c\n", find_median(n, arr[n]));
-}
-
-void sort_array(unsigned int* n, unsigned char arr)
-{
-	int i, j, a;
-	for (i = 0; i < n; ++i)
-	{
-
-		for (j = i + 1; j < n; ++j)
-		{
-
-			if (arr[i] > arr[j])
-			{
-
-				a = arr[i];
-				arr[i] = arr[j];
-				arr[j] = a;
-
-			}
-
-		}
-
-	}
-
-	printf("The numbers arranged in ascending order are given below \n");
-	for (i = 0; i < n; ++i)
-		printf("%d\n", arr[i]);
-
-}
-
+#define length (50)
 void main()
 {
-	unsigned char arr[];
-	unsigned int* n;
-	printf("Enter total number of elements: ");
-	scanf("%d", &n);
-	printf("\n");
+	unsigned char arr[length] = { 179, 55, 67, 51, 78, 55, 200, 86, 67, 90, 234,
+		234, 162, 179, 199, 141, 99, 234, 175, 130, 133, 145, 246, 241, 68, 12, 236, 127, 89,
+		255, 97, 34, 55, 2, 45, 65, 5, 36, 248, 1, 44, 56, 199, 143, 67, 52, 0, 89, 31, 0 };
 
-	print_array(n, arr[n]);
-	find_maximum(n, arr[n]);
-	find_minimum(n, arr[n]);
-	find_mean(n, arr[n]);
-	find_median(n, arr[n]);
-	print_statistics(n, arr[n]);
-	sort_array(n, arr[n]);
+	printf("array: \n");
+	print_array(arr, length);
+	printf("\n");
+	sort_array(arr, length);
+	find_median(arr, length);
+	find_mean(arr, length);
+	find_maximum(arr, length);
+	find_minimum(arr, length);
+	print_statistics(arr, length);
+	printf("\n\nthe sorted array:\n ");
+	print_array(arr, length);
 }
