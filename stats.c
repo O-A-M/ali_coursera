@@ -18,7 +18,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <stats.h>
+#include "stats.h"
 
 #define length (50)
 void main()

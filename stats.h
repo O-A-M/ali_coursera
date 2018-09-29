@@ -96,8 +96,8 @@ unsigned char find_minimum(unsigned char* ptr, int length)
 
 void print_statistics(unsigned char* ptr, int length)
 {
-	printf("\n median is %d: ", find_median(ptr, length));
-	printf("\n mean is %d: ", find_mean(ptr, length));
-	printf("\n maximum is %d: ", find_maximum(ptr, length));
-	printf("\n minimum is %d: ", find_minimum(ptr, length));
+	printf("\n median is: %d ", find_median(ptr, length));
+	printf("\n mean is: %d ", find_mean(ptr, length));
+	printf("\n maximum is: %d ", find_maximum(ptr, length));
+	printf("\n minimum is: %d ", find_minimum(ptr, length));
 }
