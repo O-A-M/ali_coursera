@@ -20,22 +20,25 @@
 #include <stdio.h>
 #include "stats.h"
 
-#define length (50)
-void main()
-{
-	unsigned char arr[length] = { 179, 55, 67, 51, 78, 55, 200, 86, 67, 90, 234,
-		234, 162, 179, 199, 141, 99, 234, 175, 130, 133, 145, 246, 241, 68, 12, 236, 127, 89,
-		255, 97, 34, 55, 2, 45, 65, 5, 36, 248, 1, 44, 56, 199, 143, 67, 52, 0, 89, 31, 0 };
+#define SIZE (40)
+
+void main() {
+
+  unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
+                              114, 88,   45,  76, 123,  87,  25,  23,
+                              200, 122, 150, 90,   92,  87, 177, 244,
+                              201,   6,  12,  60,   8,   2,   5,  67,
+                                7,  87, 250, 230,  99,   3, 100,  90};
 
 	printf("array: \n");
-	print_array(arr, length);
+	print_array(test, SIZE);
 	printf("\n");
-	sort_array(arr, length);
-	find_median(arr, length);
-	find_mean(arr, length);
-	find_maximum(arr, length);
-	find_minimum(arr, length);
-	print_statistics(arr, length);
+	sort_array(test, SIZE);
+	find_median(test, SIZE);
+	find_mean(test, SIZE);
+	find_maximum(test, SIZE);
+	find_minimum(test, SIZE);
+	print_statistics(test, SIZE);
 	printf("\n\nthe sorted array:\n ");
-	print_array(arr, length);
+	print_array(test, SIZE);
 }

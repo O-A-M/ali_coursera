@@ -25,9 +25,9 @@
 */
 
 
+#ifndef __STATS_H__
+#define __STATS_H__
 
-#include <stdlib.h>
-#include <stdio.h>
 
 void print_array(unsigned char* ptr, int length)
 {
@@ -101,3 +101,4 @@ void print_statistics(unsigned char* ptr, int length)
 	printf("\n maximum is: %d ", find_maximum(ptr, length));
 	printf("\n minimum is: %d ", find_minimum(ptr, length));
 }
+#endif
